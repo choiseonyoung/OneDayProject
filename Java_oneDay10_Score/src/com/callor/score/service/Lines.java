@@ -3,14 +3,13 @@ package com.callor.score.service;
 public class Lines {
 
 	public static String dLine(int nCount) {
-		String dLine = String.format("%0" + nCount + "d", 0).replace("0", "=");
-
+		String dLine = "=".repeat(nCount);
 		return dLine;
 	}
 
 	public static String sLine(int nCount) {
-
-		return String.format("%0" + nCount + "d", 0).replace("0", "-");
+		String sLine = "=".repeat(nCount);
+		return sLine;
 	}
 
 }
