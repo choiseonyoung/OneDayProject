@@ -20,7 +20,9 @@ public class FoodServiceImplV1 implements FoodService {
 		dbConn = DBContract.getDBConnection();
 	}
 	
+	
 	public List<MyFoodDTO> select(PreparedStatement pStr) throws SQLException {
+		//TODO 1개의 MyFood 정보
 		List<MyFoodDTO> mfList = new ArrayList<MyFoodDTO>();
 		ResultSet rSet = pStr.executeQuery();
 		while(rSet.next()) {
@@ -45,6 +47,7 @@ public class FoodServiceImplV1 implements FoodService {
 	
 	@Override
 	public List<MyFoodDTO> selectAll() {
+		//TODO 전체 MyFood 리스트
 		String sql = " SELECT * FROM view_섭취정보 ";
 		PreparedStatement pStr = null;
 		
@@ -61,14 +64,10 @@ public class FoodServiceImplV1 implements FoodService {
 		return null;
 	}
 
-	@Override
-	public List<MyFoodDTO> findByDate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public int update(MyFoodVO myFoodVO) {
+		//TODO 섭취정보 등록하기
 		String sql = " INSERT INTO tbl_myfoods ";
 		sql += " (mf_seq, mf_date, mf_name, mf_take) ";
 		sql += " VALUES(mf_seq.NEXTVAL, ?, ?, ? ) ";
@@ -91,23 +90,42 @@ public class FoodServiceImplV1 implements FoodService {
 	}
 
 	@Override
-	public String inputDate() {
-		// TODO Auto-generated method stub
+	public List<FoodDTO> findByName() {
+		// 식품명 입력해서 검색하여 선택
 		return null;
 	}
-
+	
 	@Override
-	public List<FoodDTO> findByName() {
-		// TODO Auto-generated method stub
+	public String inputDate() {
+		// TODO (섭취정보등록) 날짜 입력
 		return null;
 	}
 
 	@Override
 	public int takeFood() {
-		// TODO Auto-generated method stub
+		//TODO (섭취정보등록) 섭취량 입력
 		return 0;
 	}
 
 
+	@Override
+	public List<MyFoodDTO> findByDate(String date) {
+		// TODO 날짜 입력해 날짜별 리스트 조회
+		String sql = " SELECT * FROM view_섭취정보 ";
+		sql += " WHERE 날짜 = ? ";
+		PreparedStatement pStr = null;
+		try {
+			pStr = dbConn.prepareStatement(sql);
+			pStr.setString(1, date);
+			
+			List<MyFoodDTO> mfList = this.select(pStr);
+			pStr.close();
+			return mfList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

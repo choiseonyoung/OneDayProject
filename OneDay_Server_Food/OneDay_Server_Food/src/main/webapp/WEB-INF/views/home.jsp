@@ -33,7 +33,7 @@
 	<p>
 	<form action="ask">
 		<label>날짜</label>
-		<input name="mf_date"/>
+		<input name="date"/>
 		<button>조회</button>
 	</form>
 	
