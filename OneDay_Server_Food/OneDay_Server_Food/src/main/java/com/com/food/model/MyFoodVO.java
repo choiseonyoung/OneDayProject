@@ -15,7 +15,7 @@ import lombok.ToString;
 public class MyFoodVO {
 
 	private String mf_date;
-	private String mf_name;
+	private String mf_code;
 	private int mf_take;
 	
 };

@@ -73,6 +73,13 @@ CREATE TABLE tbl_myfoods (
 );
 DROP TABLE tbl_myfoods;
 
+DELETE tbl_myfoods;
+
+CREATE SEQUENCE mf_seq
+START WITH 1
+INCREMENT BY 1;
+DROP SEQUENCE seq_myfoods;
+
 INSERT INTO tbl_myfoods(mf_seq, mf_date, mf_code, mf_take)
 VALUES (0, '2021-05-10', 'PD00017', 1);
 
@@ -95,3 +102,6 @@ CREATE VIEW view_섭취정보 AS
 );
 DROP VIEW view_섭취정보;
 SELECT * FROM view_섭취정보;
+
+SELECT * FROM view_섭취정보
+WHERE 날짜 = '2021-05-10';

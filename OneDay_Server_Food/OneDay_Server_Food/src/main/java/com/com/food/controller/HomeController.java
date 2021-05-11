@@ -26,12 +26,8 @@ public class HomeController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<MyFoodDTO> mfList = fdService.selectAll();
-		
+		List<MyFoodDTO> mfList = fdService.selectAll_mf();
 		req.setAttribute("MFLIST", mfList);
 		req.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(req,resp);
 	}
-	
-	
-	
 }
