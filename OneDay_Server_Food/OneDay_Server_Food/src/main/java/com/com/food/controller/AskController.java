@@ -3,7 +3,6 @@ package com.com.food.controller;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,9 +41,7 @@ public class AskController extends HttpServlet {
 
 		app.setAttribute("DATE", mfList);
 
-		RequestDispatcher disp = app.getRequestDispatcher("/WEB-INF/views/dateList.jsp");
-
-		disp.forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/views/dateList.jsp").forward(req, resp);
 	}
 }
 

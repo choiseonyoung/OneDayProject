@@ -8,9 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${empty NAME}">해당 식품 없음</c:if>
-<table>
-	<tr>
+<center>
+<p><h3>원하는 식품명을 클릭하세요 &#x1F447;</h3>
+<p style="border-bottom: 1px solid #F82564; padding: 0.1em;"></p>
+<table border="1" width=100%>
+	<tr bgcolor="pink">
 	<th>식품코드</th><th>식품명</th><th>출시연도</th><th>제조사코드</th><th>제조사명</th><th>분류코드</th><th>분류명</th><th>1회제공량</th><th>총내용량(g)</th><th>에너지(kcal)</th><th>단백질(g)</th><th>지방</th><th>탄수화물</th><th>총당류</th>
 	</tr>
 		<c:forEach items="${NAME}" var="NM">
@@ -32,5 +34,6 @@
 		</tr>
 		</c:forEach>
 		</table>
+	<h4><c:if test="${empty NAME}"><p style="background: linear-gradient(to right, #A7A3FF,#FFA7A3, #671cc4, #5673bd); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">해당 식품 없음</p></c:if></h4>
 </body>
 </html>

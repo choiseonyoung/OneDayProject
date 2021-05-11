@@ -26,6 +26,7 @@ CREATE TABLE tbl_items (
     it_code	CHAR(4)	PRIMARY KEY,
     it_name	VARCHAR2(20) NOT NULL
 );
+DROP TABLE tbl_items;
 
 -- 외래키 한 개씩 따로따로 설정해야 함
 ALTER TABLE tbl_foods
@@ -90,7 +91,7 @@ CREATE VIEW view_섭취정보 AS
     m.mf_date AS 날짜,
     v.식품명,
     m.mf_take AS 섭취량,
-    v.총내용량,
+    v.총내용량 * m.mf_take AS 총내용량,
     v.에너지 * m.mf_take AS 에너지,
     v.단백질 * m.mf_take AS 단백질,
     v.지방 * m.mf_take AS 지방,
@@ -104,4 +105,9 @@ DROP VIEW view_섭취정보;
 SELECT * FROM view_섭취정보;
 
 SELECT * FROM view_섭취정보
-WHERE 날짜 = '2021-05-10';
+WHERE 날짜 = '2021-05-11';
+
+SELECT * FROM tbl_foods
+WHERE fd_name LIKE '%' || '바나나' || '%';
+
+DELETE tbl_myfoods;
