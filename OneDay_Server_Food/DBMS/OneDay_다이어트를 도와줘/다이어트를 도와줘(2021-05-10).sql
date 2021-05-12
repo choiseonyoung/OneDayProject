@@ -28,9 +28,13 @@ CREATE TABLE tbl_items (
 );
 DROP TABLE tbl_items;
 
+-- 세개의 table간에 참조무결성 설정
+-- 누가 부모이고, 누가 자손인지 파악
+-- 자손 : tbl_foods, 부모 : tbl_company, tbl_items
+-- FK 설정은 자손 table에 설정하기
 -- 외래키 한 개씩 따로따로 설정해야 함
 ALTER TABLE tbl_foods
-ADD CONSTRAINT fk_company
+ADD CONSTRAINT fk_company -- 제약조건을 설정할건데 그 이름을 fk_company로 하겠다 (이름은 삭제할때말곤 크게 중요하지 않음)
 FOREIGN KEY(fd_mcode)
 REFERENCES tbl_company(cp_code);
 
@@ -39,6 +43,7 @@ ADD CONSTRAINT fk_items
 FOREIGN KEY(fd_ccode)
 REFERENCES tbl_items(it_code);
 
+-- 컬럼 이름이 겹치는 게 하나도 없으면 AS 안 써도 됨
 CREATE VIEW view_식품정보 AS
 (
     SELECT
@@ -73,7 +78,6 @@ CREATE TABLE tbl_myfoods (
     mf_take	NUMBER NOT NULL
 );
 DROP TABLE tbl_myfoods;
-
 DELETE tbl_myfoods;
 
 CREATE SEQUENCE mf_seq

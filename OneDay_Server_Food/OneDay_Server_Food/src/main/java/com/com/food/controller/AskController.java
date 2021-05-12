@@ -32,6 +32,7 @@ public class AskController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 	
 		String date = req.getParameter("date");
 

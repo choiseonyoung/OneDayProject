@@ -24,6 +24,7 @@ public class InsertController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		req.getRequestDispatcher("/WEB-INF/views/inputName.jsp").forward(req, resp);
 	}
 	

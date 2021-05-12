@@ -25,6 +25,7 @@ public class InputNameController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
 		String name = req.getParameter("name");
 
 		List<FoodDTO> fdList = fdService.findByName(name);
