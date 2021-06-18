@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "twaysky";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_tway@1.0/twaysky.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 15vh;
+  margin: auto;
+  background-color: rgb(252, 189, 189);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+header h1 {
+  font-family: "twaysky";
+  font-size: 40px;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  height: 5vh;
+  background-color: rgb(252, 224, 222);
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#menubar {
+  display: flex;
+}
+
+#menubar p {
+  padding: 50px;
+}
+
+nav .hi {
+  position: absolute;
+  left: 90%;
+}
+
+nav p {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* main ----------------------------------------------------------------------------------------------------------- */
+
+#main {
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+#list {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid gray;
+  line-height: 40px;
+}
+
+#list tr {
+  border-bottom: 1px solid lightgray;
+}
+
+#list th {
+  background-color: rgb(245, 243, 243);
+  border-bottom: 2px solid lightgray;
+}
